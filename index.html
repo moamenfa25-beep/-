@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>عيد ميلاد هاجر ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500;700&display=swap');
+
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:Cairo,sans-serif;
+background:#000;
+color:white;
+min-height:100vh;
+text-align:center;
+}
+
+.page{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:25px;
+}
+
+.hidden{display:none}
+
+button{
+font-family:inherit;
+font-size:18px;
+font-weight:bold;
+border:0;
+border-radius:14px;
+padding:13px 30px;
+cursor:pointer;
+background:white;
+color:#111;
+}
+
+h1{font-size:27px}
+
+.message{
+max-width:600px;
+font-size:19px;
+line-height:2;
+}
+
+input{
+width:90%;
+max-width:330px;
+padding:15px;
+border:0;
+border-radius:12px;
+font-family:inherit;
+font-size:17px;
+text-align:center;
+}
+
+.link{
+margin-top:12px;
+font-size:14px;
+text-decoration:underline;
+cursor:pointer;
+}
+
+.options{
+position:relative;
+width:100%;
+height:120px;
+}
+
+#yes,#no{
+position:absolute;
+top:20px;
+}
+
+#yes{right:55%}
+#no{left:55%}
+</style>
+</head>
+
+<body>
+
+<!-- الصفحة الأولى -->
+<section id="p1" class="page">
+<h1>🎂</h1>
+<button onclick="show('p2')">اضغط هنا ❤️</button>
+</section>
+
+<!-- الباسورد -->
+<section id="p2" class="page hidden">
+<h1>صدقتي هتكون سريعة كدا<br>يلزم اعذبك 😈</h1>
+
+<input id="password" placeholder="أكتب الباسورد">
+
+<div class="link">
+اذا بدك الباسورد لا تضغط الرابط🦆
+</div>
+
+<button onclick="checkPassword()" style="margin-top:25px">
+دخول
+</button>
+</section>
+
+<!-- الرسالة -->
+<section id="p3" class="page hidden">
+<div class="message">
+اسف هادجر تعرفيني معاق و سرقت فكرتك بس بحبك و و و اسف معندي أفكار مهم مح و ابلعي ريكورد
+</div>
+
+<button onclick="show('p4')" style="margin-top:30px">
+اضغط للاستماع
+</button>
+</section>
+
+<!-- السؤال -->
+<section id="p4" class="page hidden">
+<h1>
+قبل ما تسمعي جاوبي🦆<br>
+تحبيني أو لا؟
+</h1>
+
+<div class="options">
+<button id="yes" onclick="runAway()">نعم احبك</button>
+<button id="no" onclick="show('p5')">لا ما بحبك</button>
+</div>
+</section>
+
+<!-- المقلب -->
+<section id="p5" class="page hidden">
+<div class="message">
+دام متحبيني نا نفسي الشي اطلعي برا💔
+</div>
+
+<button onclick="show('p6')" style="margin-top:30px">
+خروج
+</button>
+</section>
+
+<!-- الريكورد -->
+<section id="p6" class="page hidden">
+<h1>🎙️</h1>
+
+<div class="message">
+الريكورد هنا ❤️
+</div>
+
+<audio controls style="margin-top:25px"></audio>
+
+<button onclick="show('p7')" style="margin-top:30px">
+انتهى
+</button>
+</section>
+
+<!-- النهاية -->
+<section id="p7" class="page hidden">
+
+<h1>عيد ميلاد سعيد بقرتي هادجر🫶</h1>
+
+<div class="message">
+من ما قابلتك حبيتك و صح زعلت منك كتي بس انتي اكتر حد بحب اكلمه كنت بتمنى ما ترفضيني و علاقتنا تطور بجد يا هاجر انتي أغلى حد عندي الله يحفظك لي حبي
+</div>
+
+</section>
+
+<script>
+
+function show(id){
+document.querySelectorAll('.page').forEach(p=>{
+p.classList.add('hidden');
+});
+document.getElementById(id).classList.remove('hidden');
+}
+
+function checkPassword(){
+if(document.getElementById('password').value==="بقرتي المطيعة"){
+show('p3');
+}else{
+alert("الباسورد غلط 😭");
+}
+}
+
+function runAway(){
+let button=document.getElementById('yes');
+
+let x=(Math.random()*70)-35;
+let y=(Math.random()*100)-50;
+
+button.style.transform=
+`translate(${x}vw,${y}px)`;
+}
+
+</script>
+
+</body>
+  </html>
