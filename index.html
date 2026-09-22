@@ -2,400 +2,435 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>عيد ميلاد هاجر ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎂 مفاجأة هاجر 🎂</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500;700&display=swap');
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-*{box-sizing:border-box}
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:Arial,sans-serif;
+}
 
 body{
-margin:0;
-font-family:Cairo,sans-serif;
-background:#000;
-color:white;
-min-height:100vh;
-text-align:center;
-overflow:hidden;
+    background:#111;
 }
 
 .page{
-min-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-padding:25px;
-position:relative;
-overflow:hidden;
+    width:100vw;
+    height:100vh;
+    min-height:100vh;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:25px;
 }
 
-.hidden{display:none}
+.hide{
+    display:none !important;
+}
 
-button{
-font-family:inherit;
-font-size:18px;
-font-weight:bold;
-border:0;
-border-radius:14px;
-padding:13px 30px;
-cursor:pointer;
-background:white;
-color:#111;
-z-index:20;
+.content{
+    position:relative;
+    z-index:20;
+    max-width:90%;
 }
 
 h1{
-font-size:27px;
-z-index:20;
+    font-size:clamp(28px,8vw,48px);
+    margin-bottom:22px;
+    color:white;
+    text-shadow:0 3px 10px #000;
 }
 
-.message{
-max-width:600px;
-font-size:19px;
-line-height:2;
-z-index:20;
+p{
+    font-size:clamp(18px,5vw,27px);
+    line-height:1.8;
+    color:white;
+    text-shadow:0 2px 7px #000;
+}
+
+button{
+    border:0;
+    padding:15px 28px;
+    margin-top:22px;
+    border-radius:30px;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+    position:relative;
+    z-index:30;
+    box-shadow:0 5px 15px #0007;
 }
 
 input{
-width:90%;
-max-width:330px;
-padding:15px;
-border:0;
-border-radius:12px;
-font-family:inherit;
-font-size:17px;
-text-align:center;
-z-index:20;
+    width:min(330px,90vw);
+    padding:15px;
+    border:0;
+    border-radius:25px;
+    text-align:center;
+    font-size:19px;
+    outline:none;
+    margin-top:15px;
 }
-
-.options{
-position:relative;
-width:100%;
-height:150px;
-z-index:20;
-}
-
-#yes,#no{
-position:absolute;
-top:20px;
-}
-
-#yes{right:55%}
-#no{left:55%}
-
 
 /* الخلفيات */
 
-.bg-page{
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
+#page1{
+    background:linear-gradient(135deg,#ff5f9e,#845ec2);
 }
 
-#p2{
-background-image:url("./A.jpg");
+#page2{
+    background-image:
+        linear-gradient(#0006,#0006),
+        url("./A.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
 }
 
-#p7{
-background-image:url("./B.jpg");
+#page3{
+    background:linear-gradient(135deg,#ff758c,#ff7eb3);
 }
 
-
-/* طبقة شفافة فوق الخلفية */
-
-.bg-page::before{
-content:"";
-position:absolute;
-inset:0;
-background:rgba(0,0,0,.38);
-z-index:1;
+#page4{
+    background:linear-gradient(135deg,#667eea,#764ba2);
 }
 
-.bg-page > *{
-position:relative;
-z-index:10;
+#page5{
+    background:linear-gradient(135deg,#232526,#414345);
 }
 
+#page6{
+    background:linear-gradient(135deg,#ff9966,#ff5e62);
+}
 
-/* الإيموجيات */
+#page7{
+    background-image:
+        linear-gradient(#0004,#0004),
+        url("./B.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
 
-.floating,
-.cake{
-position:absolute;
-font-size:45px;
-pointer-events:none;
-z-index:3;
-animation-name:fall;
-animation-timing-function:linear;
-animation-iteration-count:infinite;
+/* العناصر المتحركة */
+
+.fall{
+    position:absolute;
+    top:-100px;
+    z-index:5;
+    pointer-events:none;
+    animation:fall linear infinite;
 }
 
 @keyframes fall{
-from{
-transform:translateY(-15vh) rotate(0deg);
-}
-to{
-transform:translateY(115vh) rotate(360deg);
-}
-}
+    0%{
+        transform:translateY(-120px) rotate(0deg);
+    }
 
-
-/* البطة */
-
-.duck-text{
-font-size:14px;
-z-index:20;
+    100%{
+        transform:translateY(120vh) rotate(360deg);
+    }
 }
 
-.duck-link{
-display:block;
-font-size:90px;
-text-decoration:none;
-margin-top:5px;
-cursor:pointer;
-z-index:20;
+/* الصفحة الأولى */
+
+.cake{
+    font-size:48px;
 }
 
+/* الصفحة الثانية */
 
-/* زر نعم */
+.duck{
+    display:block;
+    font-size:100px;
+    margin-top:18px;
+    text-decoration:none;
+    animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+}
+
+/* الصفحة الرابعة */
 
 #yes{
-transition:transform .15s ease;
+    background:white;
+}
+
+#no{
+    background:#222;
+    color:white;
+}
+
+/* الصفحة السادسة */
+
+audio{
+    width:min(350px,90vw);
+    margin-top:20px;
+}
+
+/* الصفحة السابعة */
+
+.finalText{
+    background:#0006;
+    padding:25px;
+    border-radius:25px;
+    backdrop-filter:blur(4px);
 }
 </style>
 </head>
 
 <body>
 
+<!-- ================= الصفحة 1 ================= -->
 
-<!-- الصفحة الأولى -->
-<section id="p1" class="page">
+<section id="page1" class="page">
 
-<span class="cake" style="left:2%;top:-10%;animation-duration:3s">🎂</span>
-<span class="cake" style="left:12%;top:-30%;animation-duration:2.5s">🧁</span>
-<span class="cake" style="left:22%;top:-50%;animation-duration:3.5s">🎂</span>
-<span class="cake" style="left:32%;top:-20%;animation-duration:2.8s">🍰</span>
-<span class="cake" style="left:42%;top:-40%;animation-duration:3.2s">🧁</span>
-<span class="cake" style="left:52%;top:-15%;animation-duration:2.6s">🎂</span>
-<span class="cake" style="left:62%;top:-45%;animation-duration:3.4s">🍰</span>
-<span class="cake" style="left:72%;top:-25%;animation-duration:2.7s">🧁</span>
-<span class="cake" style="left:82%;top:-55%;animation-duration:3.1s">🎂</span>
-<span class="cake" style="left:92%;top:-35%;animation-duration:2.9s">🍰</span>
+    <div class="fall cake" style="left:3%;animation-duration:2.5s;">🎂</div>
+    <div class="fall cake" style="left:13%;animation-duration:3s;animation-delay:-1s;">🎂</div>
+    <div class="fall cake" style="left:25%;animation-duration:2.7s;animation-delay:-2s;">🧁</div>
+    <div class="fall cake" style="left:37%;animation-duration:3.2s;animation-delay:-.5s;">🎂</div>
+    <div class="fall cake" style="left:49%;animation-duration:2.6s;animation-delay:-1.5s;">🧁</div>
+    <div class="fall cake" style="left:61%;animation-duration:3.1s;animation-delay:-2.2s;">🎂</div>
+    <div class="fall cake" style="left:73%;animation-duration:2.8s;animation-delay:-.8s;">🧁</div>
+    <div class="fall cake" style="left:85%;animation-duration:3.3s;animation-delay:-1.8s;">🎂</div>
+    <div class="fall cake" style="left:94%;animation-duration:2.4s;animation-delay:-.3s;">🎂</div>
 
-<h1>🎂❤️</h1>
-
-<button onclick="show('p2')">
-اضغط هنا ❤️
-</button>
-
-</section>
-
-
-<!-- الصفحة الثانية -->
-<section id="p2" class="page bg-page">
-
-<h1>
-صدقتي هتكون سريعة كدا<br>
-يلزم أعذبك 😉
-</h1>
-
-<input id="password" placeholder="أكتب الباسورد">
-
-<div class="duck-text">
-لا تضغط البطة
-</div>
-
-<a
-class="duck-link"
-href="https://www.facebook.com/profile.php?id=61594269916603"
-target="_blank"
->
-🦆
-</a>
-
-<button onclick="checkPassword()" style="margin-top:20px">
-دخول
-</button>
+    <div class="content">
+        <h1>🎂 عندي ليك مفاجأة 🎂</h1>
+        <p>جاهزة يا هاجر؟ 👀</p>
+        <button onclick="go(2)">اضغط هنا ❤️</button>
+    </div>
 
 </section>
 
 
-<!-- الصفحة الثالثة -->
-<section id="p3" class="page hidden">
+<!-- ================= الصفحة 2 ================= -->
 
-<span class="floating" style="left:2%;animation-duration:3s">❤️</span>
-<span class="floating" style="left:10%;animation-duration:2.5s">💗</span>
-<span class="floating" style="left:18%;animation-duration:3.2s">💖</span>
-<span class="floating" style="left:26%;animation-duration:2.8s">💕</span>
-<span class="floating" style="left:34%;animation-duration:3.5s">❤️</span>
-<span class="floating" style="left:42%;animation-duration:2.6s">💗</span>
-<span class="floating" style="left:50%;animation-duration:3.1s">💖</span>
-<span class="floating" style="left:58%;animation-duration:2.7s">💕</span>
-<span class="floating" style="left:66%;animation-duration:3.4s">❤️</span>
-<span class="floating" style="left:74%;animation-duration:2.9s">💗</span>
-<span class="floating" style="left:82%;animation-duration:3.3s">💖</span>
-<span class="floating" style="left:90%;animation-duration:2.4s">💕</span>
+<section id="page2" class="page hide">
 
-<div class="message">
-آسف هاجر تعرفيني معاق وسرقت فكرتك 😂
-بس بحبك و... آسف معندي أفكار مهمة مح وابلعي ريكورد ❤️
-</div>
+    <div class="content">
+        <h1>صدقتي هتكون سريعة كدا<br>يلزم أعذبك 😉</h1>
 
-<button onclick="show('p4')" style="margin-top:30px">
-اضغط للاستماع
-</button>
+        <input id="password" type="password" placeholder="أكتب الباسورد">
+
+        <button onclick="checkPassword()">دخول</button>
+
+        <p style="margin-top:15px;">لا تضغط البطة</p>
+
+        <a
+            class="duck"
+            href="https://www.facebook.com/profile.php?id=61594269916603"
+            target="_blank">
+            🦆
+        </a>
+    </div>
 
 </section>
 
 
-<!-- الصفحة الرابعة -->
-<section id="p4" class="page hidden">
+<!-- ================= الصفحة 3 ================= -->
 
-<span class="floating" style="left:2%;animation-duration:3s">❓</span>
-<span class="floating" style="left:10%;animation-duration:2.5s">❔</span>
-<span class="floating" style="left:18%;animation-duration:3.2s">❓</span>
-<span class="floating" style="left:26%;animation-duration:2.8s">❔</span>
-<span class="floating" style="left:34%;animation-duration:3.5s">❓</span>
-<span class="floating" style="left:42%;animation-duration:2.6s">❔</span>
-<span class="floating" style="left:50%;animation-duration:3.1s">❓</span>
-<span class="floating" style="left:58%;animation-duration:2.7s">❔</span>
-<span class="floating" style="left:66%;animation-duration:3.4s">❓</span>
-<span class="floating" style="left:74%;animation-duration:2.9s">❔</span>
-<span class="floating" style="left:82%;animation-duration:3.3s">❓</span>
-<span class="floating" style="left:90%;animation-duration:2.4s">❔</span>
+<section id="page3" class="page hide">
 
-<h1>
-قبل ما تسمعي جاوبي 🤨<br>
-تحبيني أو لا؟
-</h1>
+    <div class="fall" style="left:2%;animation-duration:2.4s;">❤️</div>
+    <div class="fall" style="left:10%;animation-duration:3s;animation-delay:-1s;">💗</div>
+    <div class="fall" style="left:20%;animation-duration:2.7s;animation-delay:-2s;">💕</div>
+    <div class="fall" style="left:31%;animation-duration:3.3s;">❤️</div>
+    <div class="fall" style="left:43%;animation-duration:2.6s;animation-delay:-1.3s;">💖</div>
+    <div class="fall" style="left:55%;animation-duration:3.1s;animation-delay:-2s;">💕</div>
+    <div class="fall" style="left:67%;animation-duration:2.5s;">❤️</div>
+    <div class="fall" style="left:79%;animation-duration:3.2s;animation-delay:-1s;">💗</div>
+    <div class="fall" style="left:91%;animation-duration:2.8s;animation-delay:-2s;">❤️</div>
 
-<div class="options">
-<button id="yes" onclick="runAway()">نعم أحبك</button>
-<button id="no" onclick="show('p5')">لا ما بحبك</button>
-</div>
+    <div class="content">
+        <p>
+            آسف هاجر تعرفيني معاق وسرقت فكرتك 😂<br>
+            بس بحبك و... آسف معندي أفكار مهمة<br>
+            مح وابلعي ريكورد ❤️
+        </p>
+
+        <button onclick="go(4)">اضغط للاستماع</button>
+    </div>
 
 </section>
 
 
-<!-- الصفحة الخامسة -->
-<section id="p5" class="page hidden">
+<!-- ================= الصفحة 4 ================= -->
 
-<span class="floating" style="left:2%;animation-duration:3s">💔</span>
-<span class="floating" style="left:10%;animation-duration:2.5s">💔</span>
-<span class="floating" style="left:18%;animation-duration:3.2s">💔</span>
-<span class="floating" style="left:26%;animation-duration:2.8s">💔</span>
-<span class="floating" style="left:34%;animation-duration:3.5s">💔</span>
-<span class="floating" style="left:42%;animation-duration:2.6s">💔</span>
-<span class="floating" style="left:50%;animation-duration:3.1s">💔</span>
-<span class="floating" style="left:58%;animation-duration:2.7s">💔</span>
-<span class="floating" style="left:66%;animation-duration:3.4s">💔</span>
-<span class="floating" style="left:74%;animation-duration:2.9s">💔</span>
-<span class="floating" style="left:82%;animation-duration:3.3s">💔</span>
-<span class="floating" style="left:90%;animation-duration:2.4s">💔</span>
+<section id="page4" class="page hide">
 
-<div class="message">
-دام ما بتحبيني أنا نفسي الشي، اطلعي برا 💔
-</div>
+    <div class="fall" style="left:5%;animation-duration:2.5s;">❓</div>
+    <div class="fall" style="left:17%;animation-duration:3s;animation-delay:-1s;">❓</div>
+    <div class="fall" style="left:30%;animation-duration:2.7s;animation-delay:-2s;">❓</div>
+    <div class="fall" style="left:43%;animation-duration:3.2s;">❓</div>
+    <div class="fall" style="left:57%;animation-duration:2.6s;animation-delay:-1.5s;">❓</div>
+    <div class="fall" style="left:70%;animation-duration:3.1s;">❓</div>
+    <div class="fall" style="left:83%;animation-duration:2.4s;animation-delay:-2s;">❓</div>
+    <div class="fall" style="left:94%;animation-duration:2.9s;">❓</div>
 
-<button onclick="show('p6')" style="margin-top:30px">
-خروج
-</button>
+    <div class="content">
 
-</section>
+        <h1>قبل ما تسمعي جاوبي 🤨</h1>
 
+        <p>تحبيني أو لا؟</p>
 
-<!-- الصفحة السادسة -->
-<section id="p6" class="page hidden">
+        <button id="yes" onclick="runAway()">نعم أحبك ❤️</button>
 
-<span class="floating" style="left:2%;animation-duration:3s">🫦</span>
-<span class="floating" style="left:10%;animation-duration:2.5s">🫦</span>
-<span class="floating" style="left:18%;animation-duration:3.2s">🫦</span>
-<span class="floating" style="left:26%;animation-duration:2.8s">🫦</span>
-<span class="floating" style="left:34%;animation-duration:3.5s">🫦</span>
-<span class="floating" style="left:42%;animation-duration:2.6s">🫦</span>
-<span class="floating" style="left:50%;animation-duration:3.1s">🫦</span>
-<span class="floating" style="left:58%;animation-duration:2.7s">🫦</span>
-<span class="floating" style="left:66%;animation-duration:3.4s">🫦</span>
-<span class="floating" style="left:74%;animation-duration:2.9s">🫦</span>
-<span class="floating" style="left:82%;animation-duration:3.3s">🫦</span>
-<span class="floating" style="left:90%;animation-duration:2.4s">🫦</span>
+        <br>
 
-<h1>🎙️</h1>
+        <button id="no" onclick="go(5)">لا ما بحبك 💔</button>
 
-<div class="message">
-الريكورد هنا ❤️
-</div>
-
-<audio controls style="margin-top:25px"></audio>
-
-<button onclick="show('p7')" style="margin-top:30px">
-انتهى
-</button>
+    </div>
 
 </section>
 
 
-<!-- الصفحة الأخيرة -->
-<section id="p7" class="page bg-page hidden">
+<!-- ================= الصفحة 5 ================= -->
 
-<h1>
-عيد ميلاد سعيد بقرتي هاجر 🫶
-</h1>
+<section id="page5" class="page hide">
 
-<div class="message">
-من ما قابلتك حبيتك، وصح زعلت منك كتير،
-بس إنتي أكتر حد بحب أكلمه.
-كنت بتمنى ما ترفضيني وعلاقتنا تطور بجد.
-يا هاجر إنتي أغلى حد عندي،
-الله يحفظك لي حبي ❤️
-</div>
+    <div class="fall" style="left:4%;animation-duration:2.5s;">💔</div>
+    <div class="fall" style="left:16%;animation-duration:3s;animation-delay:-1s;">💔</div>
+    <div class="fall" style="left:29%;animation-duration:2.7s;animation-delay:-2s;">💔</div>
+    <div class="fall" style="left:42%;animation-duration:3.2s;">💔</div>
+    <div class="fall" style="left:55%;animation-duration:2.6s;animation-delay:-1.5s;">💔</div>
+    <div class="fall" style="left:68%;animation-duration:3.1s;">💔</div>
+    <div class="fall" style="left:81%;animation-duration:2.4s;">💔</div>
+    <div class="fall" style="left:94%;animation-duration:2.9s;">💔</div>
+
+    <div class="content">
+
+        <h1>💔</h1>
+
+        <p>
+            دام ما بتحبيني أنا نفس الشي،<br>
+            اطلعي برا 💔
+        </p>
+
+        <button onclick="go(6)">خروج</button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= الصفحة 6 ================= -->
+
+<section id="page6" class="page hide">
+
+    <div class="fall" style="left:4%;animation-duration:2.5s;">🫦</div>
+    <div class="fall" style="left:15%;animation-duration:3s;animation-delay:-1s;">🫦</div>
+    <div class="fall" style="left:28%;animation-duration:2.7s;">🫦</div>
+    <div class="fall" style="left:41%;animation-duration:3.2s;animation-delay:-2s;">🫦</div>
+    <div class="fall" style="left:54%;animation-duration:2.6s;">🫦</div>
+    <div class="fall" style="left:67%;animation-duration:3.1s;animation-delay:-1s;">🫦</div>
+    <div class="fall" style="left:80%;animation-duration:2.4s;">🫦</div>
+    <div class="fall" style="left:93%;animation-duration:2.9s;animation-delay:-2s;">🫦</div>
+
+    <div class="content">
+
+        <h1>🎙️</h1>
+
+        <p>الريكورد هنا ❤️</p>
+
+        <!-- ضع ملف الصوت هنا لاحقا -->
+        <audio controls>
+        </audio>
+
+        <br>
+
+        <button onclick="go(7)">انتهى</button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= الصفحة 7 ================= -->
+
+<section id="page7" class="page hide">
+
+    <div class="content finalText">
+
+        <p>
+            عيد ميلاد سعيد بقرتي هاجر 🫶<br><br>
+
+            من ما قابلتك حبيتك، وصح زعلت منك كتير،<br>
+            بس إنتي أكتر حد بحب أكلمه.<br><br>
+
+            كنت بتمنى ما ترفضيني وعلاقتنا تطور بجد.<br><br>
+
+            يا هاجر إنتي أغلى حد عندي،<br>
+            الله يحفظك لي حبي ❤️
+        </p>
+
+    </div>
 
 </section>
 
 
 <script>
 
-function show(id){
+function go(number){
 
-document.querySelectorAll('.page').forEach(p=>{
-p.classList.add('hidden');
-});
+    document.querySelectorAll(".page").forEach(function(page){
+        page.classList.add("hide");
+    });
 
-document.getElementById(id).classList.remove('hidden');
-
+    document.getElementById("page" + number).classList.remove("hide");
 }
 
 
 function checkPassword(){
 
-if(document.getElementById('password').value==="بقرتي المطيعة"){
+    let password =
+        document.getElementById("password").value;
 
-show('p3');
+    if(password === "بقرتي المطيعة"){
 
-}else{
+        go(3);
 
-alert("الباسورد غلط 😂");
+    }else{
 
-}
+        alert("الباسورد غلط 😂");
 
+    }
 }
 
 
 function runAway(){
 
-let button=document.getElementById('yes');
+    let button =
+        document.getElementById("yes");
 
-let x=(Math.random()*70)-35;
-let y=(Math.random()*100)-50;
+    let x =
+        Math.random() * 70 - 35;
 
-button.style.transform=
-`translate(${x}vw,${y}px)`;
+    let y =
+        Math.random() * 250 - 125;
+
+    button.style.transform =
+        "translate(" + x + "vw," + y + "px)";
 
 }
 
 </script>
 
 </body>
-</html>
+      </html>
