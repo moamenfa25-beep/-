@@ -43,16 +43,19 @@ padding:13px 30px;
 cursor:pointer;
 background:white;
 color:#111;
-z-index:5;
+z-index:20;
 }
 
-h1{font-size:27px}
+h1{
+font-size:27px;
+z-index:20;
+}
 
 .message{
 max-width:600px;
 font-size:19px;
 line-height:2;
-z-index:5;
+z-index:20;
 }
 
 input{
@@ -64,13 +67,14 @@ border-radius:12px;
 font-family:inherit;
 font-size:17px;
 text-align:center;
+z-index:20;
 }
 
 .options{
 position:relative;
 width:100%;
 height:150px;
-z-index:5;
+z-index:20;
 }
 
 #yes,#no{
@@ -81,87 +85,106 @@ top:20px;
 #yes{right:55%}
 #no{left:55%}
 
-/* الإيموجيات المتحركة */
-.floating{
+
+/* الخلفيات */
+
+.bg-page{
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+}
+
+#p2{
+background-image:url("./A.jpg");
+}
+
+#p7{
+background-image:url("./B.jpg");
+}
+
+
+/* طبقة شفافة فوق الخلفية */
+
+.bg-page::before{
+content:"";
 position:absolute;
-font-size:45px;
-animation:fall linear infinite;
-pointer-events:none;
-opacity:.9;
+inset:0;
+background:rgba(0,0,0,.38);
+z-index:1;
 }
 
-@keyframes fall{
-0%{
-transform:translateY(-120vh) rotate(0deg);
-}
-100%{
-transform:translateY(120vh) rotate(360deg);
-}
+.bg-page > *{
+position:relative;
+z-index:10;
 }
 
-/* الصفحة الأولى */
+
+/* الإيموجيات */
+
+.floating,
 .cake{
 position:absolute;
 font-size:45px;
-animation:cakeMove linear infinite;
 pointer-events:none;
+z-index:3;
+animation-name:fall;
+animation-timing-function:linear;
+animation-iteration-count:infinite;
 }
 
-@keyframes cakeMove{
-0%{transform:translateY(110vh) rotate(0deg);}
-100%{transform:translateY(-120vh) rotate(360deg);}
+@keyframes fall{
+from{
+transform:translateY(-15vh) rotate(0deg);
+}
+to{
+transform:translateY(115vh) rotate(360deg);
+}
 }
 
-/* صورة النهاية */
-.final-img{
-width:90%;
-max-width:420px;
-max-height:45vh;
-object-fit:contain;
-border-radius:20px;
-margin-bottom:20px;
-}
-
-/* صورة الصفحة الثانية */
-.page-image{
-width:90%;
-max-width:420px;
-max-height:45vh;
-object-fit:contain;
-border-radius:20px;
-margin-bottom:20px;
-}
 
 /* البطة */
-.duck-link{
-display:block;
-font-size:75px;
-text-decoration:none;
-margin-top:12px;
-cursor:pointer;
-}
 
 .duck-text{
 font-size:14px;
+z-index:20;
+}
+
+.duck-link{
+display:block;
+font-size:90px;
+text-decoration:none;
 margin-top:5px;
+cursor:pointer;
+z-index:20;
+}
+
+
+/* زر نعم */
+
+#yes{
+transition:transform .15s ease;
 }
 </style>
 </head>
 
 <body>
 
+
 <!-- الصفحة الأولى -->
 <section id="p1" class="page">
 
-<span class="cake" style="left:5%;animation-duration:5s">🎂</span>
-<span class="cake" style="left:18%;animation-duration:7s">🧁</span>
-<span class="cake" style="left:32%;animation-duration:6s">🎂</span>
-<span class="cake" style="left:48%;animation-duration:8s">🍰</span>
-<span class="cake" style="left:63%;animation-duration:5.5s">🧁</span>
-<span class="cake" style="left:78%;animation-duration:7.5s">🎂</span>
-<span class="cake" style="left:92%;animation-duration:6.5s">🍰</span>
+<span class="cake" style="left:2%;top:-10%;animation-duration:3s">🎂</span>
+<span class="cake" style="left:12%;top:-30%;animation-duration:2.5s">🧁</span>
+<span class="cake" style="left:22%;top:-50%;animation-duration:3.5s">🎂</span>
+<span class="cake" style="left:32%;top:-20%;animation-duration:2.8s">🍰</span>
+<span class="cake" style="left:42%;top:-40%;animation-duration:3.2s">🧁</span>
+<span class="cake" style="left:52%;top:-15%;animation-duration:2.6s">🎂</span>
+<span class="cake" style="left:62%;top:-45%;animation-duration:3.4s">🍰</span>
+<span class="cake" style="left:72%;top:-25%;animation-duration:2.7s">🧁</span>
+<span class="cake" style="left:82%;top:-55%;animation-duration:3.1s">🎂</span>
+<span class="cake" style="left:92%;top:-35%;animation-duration:2.9s">🍰</span>
 
-<h1 style="z-index:5">🎂❤️</h1>
+<h1>🎂❤️</h1>
 
 <button onclick="show('p2')">
 اضغط هنا ❤️
@@ -171,9 +194,7 @@ margin-top:5px;
 
 
 <!-- الصفحة الثانية -->
-<section id="p2" class="page hidden">
-
-<img src="A.jpg" class="page-image">
+<section id="p2" class="page bg-page">
 
 <h1>
 صدقتي هتكون سريعة كدا<br>
@@ -183,7 +204,7 @@ margin-top:5px;
 <input id="password" placeholder="أكتب الباسورد">
 
 <div class="duck-text">
-لا تضغط البطة 🦆
+لا تضغط البطة
 </div>
 
 <a
@@ -204,13 +225,18 @@ target="_blank"
 <!-- الصفحة الثالثة -->
 <section id="p3" class="page hidden">
 
-<span class="floating" style="left:5%;animation-duration:5s">❤️</span>
-<span class="floating" style="left:20%;animation-duration:7s">💗</span>
-<span class="floating" style="left:35%;animation-duration:6s">💖</span>
-<span class="floating" style="left:50%;animation-duration:8s">💕</span>
-<span class="floating" style="left:65%;animation-duration:5.5s">❤️</span>
-<span class="floating" style="left:80%;animation-duration:7.5s">💗</span>
-<span class="floating" style="left:93%;animation-duration:6.5s">💖</span>
+<span class="floating" style="left:2%;animation-duration:3s">❤️</span>
+<span class="floating" style="left:10%;animation-duration:2.5s">💗</span>
+<span class="floating" style="left:18%;animation-duration:3.2s">💖</span>
+<span class="floating" style="left:26%;animation-duration:2.8s">💕</span>
+<span class="floating" style="left:34%;animation-duration:3.5s">❤️</span>
+<span class="floating" style="left:42%;animation-duration:2.6s">💗</span>
+<span class="floating" style="left:50%;animation-duration:3.1s">💖</span>
+<span class="floating" style="left:58%;animation-duration:2.7s">💕</span>
+<span class="floating" style="left:66%;animation-duration:3.4s">❤️</span>
+<span class="floating" style="left:74%;animation-duration:2.9s">💗</span>
+<span class="floating" style="left:82%;animation-duration:3.3s">💖</span>
+<span class="floating" style="left:90%;animation-duration:2.4s">💕</span>
 
 <div class="message">
 آسف هاجر تعرفيني معاق وسرقت فكرتك 😂
@@ -227,13 +253,18 @@ target="_blank"
 <!-- الصفحة الرابعة -->
 <section id="p4" class="page hidden">
 
-<span class="floating" style="left:5%;animation-duration:5s">❓</span>
-<span class="floating" style="left:20%;animation-duration:7s">❔</span>
-<span class="floating" style="left:35%;animation-duration:6s">❓</span>
-<span class="floating" style="left:50%;animation-duration:8s">❔</span>
-<span class="floating" style="left:65%;animation-duration:5.5s">❓</span>
-<span class="floating" style="left:80%;animation-duration:7.5s">❔</span>
-<span class="floating" style="left:93%;animation-duration:6.5s">❓</span>
+<span class="floating" style="left:2%;animation-duration:3s">❓</span>
+<span class="floating" style="left:10%;animation-duration:2.5s">❔</span>
+<span class="floating" style="left:18%;animation-duration:3.2s">❓</span>
+<span class="floating" style="left:26%;animation-duration:2.8s">❔</span>
+<span class="floating" style="left:34%;animation-duration:3.5s">❓</span>
+<span class="floating" style="left:42%;animation-duration:2.6s">❔</span>
+<span class="floating" style="left:50%;animation-duration:3.1s">❓</span>
+<span class="floating" style="left:58%;animation-duration:2.7s">❔</span>
+<span class="floating" style="left:66%;animation-duration:3.4s">❓</span>
+<span class="floating" style="left:74%;animation-duration:2.9s">❔</span>
+<span class="floating" style="left:82%;animation-duration:3.3s">❓</span>
+<span class="floating" style="left:90%;animation-duration:2.4s">❔</span>
 
 <h1>
 قبل ما تسمعي جاوبي 🤨<br>
@@ -251,13 +282,18 @@ target="_blank"
 <!-- الصفحة الخامسة -->
 <section id="p5" class="page hidden">
 
-<span class="floating" style="left:5%;animation-duration:5s">💔</span>
-<span class="floating" style="left:20%;animation-duration:7s">💔</span>
-<span class="floating" style="left:35%;animation-duration:6s">💔</span>
-<span class="floating" style="left:50%;animation-duration:8s">💔</span>
-<span class="floating" style="left:65%;animation-duration:5.5s">💔</span>
-<span class="floating" style="left:80%;animation-duration:7.5s">💔</span>
-<span class="floating" style="left:93%;animation-duration:6.5s">💔</span>
+<span class="floating" style="left:2%;animation-duration:3s">💔</span>
+<span class="floating" style="left:10%;animation-duration:2.5s">💔</span>
+<span class="floating" style="left:18%;animation-duration:3.2s">💔</span>
+<span class="floating" style="left:26%;animation-duration:2.8s">💔</span>
+<span class="floating" style="left:34%;animation-duration:3.5s">💔</span>
+<span class="floating" style="left:42%;animation-duration:2.6s">💔</span>
+<span class="floating" style="left:50%;animation-duration:3.1s">💔</span>
+<span class="floating" style="left:58%;animation-duration:2.7s">💔</span>
+<span class="floating" style="left:66%;animation-duration:3.4s">💔</span>
+<span class="floating" style="left:74%;animation-duration:2.9s">💔</span>
+<span class="floating" style="left:82%;animation-duration:3.3s">💔</span>
+<span class="floating" style="left:90%;animation-duration:2.4s">💔</span>
 
 <div class="message">
 دام ما بتحبيني أنا نفسي الشي، اطلعي برا 💔
@@ -273,13 +309,18 @@ target="_blank"
 <!-- الصفحة السادسة -->
 <section id="p6" class="page hidden">
 
-<span class="floating" style="left:5%;animation-duration:5s">🫦</span>
-<span class="floating" style="left:20%;animation-duration:7s">🫦</span>
-<span class="floating" style="left:35%;animation-duration:6s">🫦</span>
-<span class="floating" style="left:50%;animation-duration:8s">🫦</span>
-<span class="floating" style="left:65%;animation-duration:5.5s">🫦</span>
-<span class="floating" style="left:80%;animation-duration:7.5s">🫦</span>
-<span class="floating" style="left:93%;animation-duration:6.5s">🫦</span>
+<span class="floating" style="left:2%;animation-duration:3s">🫦</span>
+<span class="floating" style="left:10%;animation-duration:2.5s">🫦</span>
+<span class="floating" style="left:18%;animation-duration:3.2s">🫦</span>
+<span class="floating" style="left:26%;animation-duration:2.8s">🫦</span>
+<span class="floating" style="left:34%;animation-duration:3.5s">🫦</span>
+<span class="floating" style="left:42%;animation-duration:2.6s">🫦</span>
+<span class="floating" style="left:50%;animation-duration:3.1s">🫦</span>
+<span class="floating" style="left:58%;animation-duration:2.7s">🫦</span>
+<span class="floating" style="left:66%;animation-duration:3.4s">🫦</span>
+<span class="floating" style="left:74%;animation-duration:2.9s">🫦</span>
+<span class="floating" style="left:82%;animation-duration:3.3s">🫦</span>
+<span class="floating" style="left:90%;animation-duration:2.4s">🫦</span>
 
 <h1>🎙️</h1>
 
@@ -297,9 +338,7 @@ target="_blank"
 
 
 <!-- الصفحة الأخيرة -->
-<section id="p7" class="page hidden">
-
-<img src="B.jpg" class="final-img">
+<section id="p7" class="page bg-page hidden">
 
 <h1>
 عيد ميلاد سعيد بقرتي هاجر 🫶
@@ -319,15 +358,20 @@ target="_blank"
 <script>
 
 function show(id){
+
 document.querySelectorAll('.page').forEach(p=>{
 p.classList.add('hidden');
 });
+
 document.getElementById(id).classList.remove('hidden');
+
 }
+
 
 function checkPassword(){
 
 if(document.getElementById('password').value==="بقرتي المطيعة"){
+
 show('p3');
 
 }else{
@@ -337,6 +381,7 @@ alert("الباسورد غلط 😂");
 }
 
 }
+
 
 function runAway(){
 
@@ -353,4 +398,4 @@ button.style.transform=
 </script>
 
 </body>
-  </html>
+</html>
