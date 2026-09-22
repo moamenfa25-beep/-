@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🎂 هدية هاجر 🎂</title>
+
+<title>عيد ميلاد هاجر ❤️</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -15,11 +18,11 @@
 html,body{
     width:100%;
     height:100%;
-    overflow:hidden;
-    font-family:Arial,sans-serif;
 }
 
 body{
+    overflow:hidden;
+    font-family:Arial,sans-serif;
     background:#111;
 }
 
@@ -28,9 +31,11 @@ body{
     height:100vh;
     position:relative;
     overflow:hidden;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     text-align:center;
     padding:20px;
 }
@@ -49,8 +54,8 @@ body{
 h1{
     color:white;
     font-size:clamp(28px,8vw,50px);
-    text-shadow:0 3px 12px #000;
     margin-bottom:20px;
+    text-shadow:0 3px 12px #000;
 }
 
 p{
@@ -61,74 +66,109 @@ p{
 }
 
 button{
-    border:0;
+    border:none;
     border-radius:30px;
+
     padding:14px 28px;
     margin-top:22px;
+
     font-size:20px;
     font-weight:bold;
+
     cursor:pointer;
+
     position:relative;
     z-index:30;
+
     box-shadow:0 5px 15px #0008;
 }
 
-/* خلفيات الصفحات */
+
+/* ================= الصفحة 1 ================= */
 
 #p1{
     background:linear-gradient(135deg,#ff5f9e,#845ec2);
 }
 
+
+/* ================= الصفحة 3 ================= */
+
 #p3{
     background:linear-gradient(135deg,#ff758c,#ff7eb3);
 }
+
+
+/* ================= الصفحة 4 ================= */
 
 #p4{
     background:linear-gradient(135deg,#667eea,#764ba2);
 }
 
+
+/* ================= الصفحة 5 ================= */
+
 #p5{
     background:linear-gradient(135deg,#232526,#414345);
 }
+
+
+/* ================= الصفحة 6 ================= */
 
 #p6{
     background:linear-gradient(135deg,#ff9966,#ff5e62);
 }
 
 
-/* الصور كخلفية كاملة */
+/* ================= الصور ================= */
 
 .background-photo{
     position:absolute;
-    inset:0;
+
+    top:0;
+    left:0;
+
     width:100%;
     height:100%;
+
     object-fit:cover;
     object-position:center;
+
     z-index:0;
 }
 
 .photo-overlay{
     position:absolute;
-    inset:0;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
     background:rgba(0,0,0,.38);
+
     z-index:1;
 }
 
 
-/* الحركة */
+/* ================= الحركة ================= */
 
 .floating{
     position:absolute;
+
     top:-100px;
+
     z-index:5;
+
     pointer-events:none;
+
     animation-name:fall;
     animation-timing-function:linear;
     animation-iteration-count:infinite;
 }
 
 @keyframes fall{
+
     from{
         transform:translateY(-120px) rotate(0deg);
     }
@@ -136,28 +176,41 @@ button{
     to{
         transform:translateY(120vh) rotate(360deg);
     }
+
 }
 
 
-/* البطة */
+/* ================= البطة ================= */
 
 .duck{
     display:block;
+
     font-size:110px;
-    text-decoration:none;
+
     margin-top:10px;
-    animation:bounce 1.4s infinite;
+
+    text-decoration:none;
+
     position:relative;
     z-index:30;
+
+    animation:bounce 1.4s infinite;
 }
 
 @keyframes bounce{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-12px)}
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
 }
 
 
-/* الصفحة الرابعة */
+/* ================= الصفحة 4 ================= */
 
 #yes{
     background:white;
@@ -169,47 +222,65 @@ button{
 }
 
 
-/* الصفحة الأخيرة */
-
-.final-box{
-    background:rgba(0,0,0,.45);
-    padding:25px;
-    border-radius:25px;
-    backdrop-filter:blur(5px);
-}
-
-.final-title{
-    font-size:clamp(38px,12vw,75px);
-    font-weight:900;
-    color:#fff;
-    text-shadow:
-        0 0 10px #fff,
-        0 0 25px #ff69b4,
-        0 0 45px #ff1493;
-    margin-bottom:25px;
-    animation:shine 1.5s infinite alternate;
-}
-
-@keyframes shine{
-    from{
-        transform:scale(1);
-    }
-    to{
-        transform:scale(1.06);
-    }
-}
+/* ================= الصفحة 6 ================= */
 
 audio{
     width:min(350px,90vw);
     margin-top:20px;
 }
+
+
+/* ================= الصفحة الأخيرة ================= */
+
+.final-box{
+    background:rgba(0,0,0,.45);
+
+    padding:25px;
+
+    border-radius:25px;
+
+    backdrop-filter:blur(5px);
+}
+
+.final-title{
+    font-size:clamp(40px,13vw,80px);
+
+    font-weight:900;
+
+    color:white;
+
+    margin-bottom:25px;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 25px #ff69b4,
+        0 0 45px #ff1493;
+
+    animation:shine 1.5s infinite alternate;
+}
+
+@keyframes shine{
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.06);
+    }
+
+}
+
 </style>
 </head>
+
 
 <body>
 
 
-<!-- ================= الصفحة الأولى ================= -->
+<!-- ================================================== -->
+<!-- الصفحة الأولى -->
+<!-- ================================================== -->
 
 <section id="p1" class="page">
 
@@ -223,6 +294,7 @@ audio{
     <div class="floating" style="left:82%;animation-duration:2.5s;animation-delay:-1.8s;">🧁</div>
     <div class="floating" style="left:94%;animation-duration:2.9s;animation-delay:-.3s;">🎂</div>
 
+
     <div class="content">
 
         <p>
@@ -231,20 +303,32 @@ audio{
             بس الصورة دي جد اعتزر 💔
         </p>
 
-        <button onclick="go(2)">خروج</button>
+        <button onclick="go(2)">
+            خروج
+        </button>
 
     </div>
 
 </section>
 
 
-<!-- ================= الصفحة الثانية ================= -->
+
+<!-- ================================================== -->
+<!-- الصفحة الثانية -->
+<!-- ================================================== -->
 
 <section id="p2" class="page hidden">
 
-    <!-- A.jpg كصورة خلفية كاملة -->
-    <img class="background-photo" src="A.jpg" alt="">
+
+    <!-- الصورة الأولى -->
+    <img
+        class="background-photo"
+        src="2c07821265d60ccc1651b4795678610a.jpg"
+        alt=""
+    >
+
     <div class="photo-overlay"></div>
+
 
     <div class="content">
 
@@ -253,7 +337,8 @@ audio{
             يلزم أعذبك 😉
         </p>
 
-        <!-- الكتابة ظاهرة وليست مخفية -->
+
+        <!-- الباسورد ظاهر أثناء الكتابة -->
         <input
             id="password"
             type="text"
@@ -262,7 +347,7 @@ audio{
                 width:min(350px,90vw);
                 padding:15px;
                 margin-top:20px;
-                border:0;
+                border:none;
                 border-radius:25px;
                 text-align:center;
                 font-size:19px;
@@ -270,18 +355,26 @@ audio{
             "
         >
 
+
         <br>
 
-        <button onclick="checkPassword()">دخول</button>
+
+        <button onclick="checkPassword()">
+            دخول
+        </button>
+
 
         <p style="margin-top:15px;">
             لا تضغط البطة
         </p>
 
+
         <a
             class="duck"
             href="https://www.facebook.com/profile.php?id=61594269916603"
-            target="_blank">
+            target="_blank"
+            rel="noopener noreferrer"
+        >
             🦆
         </a>
 
@@ -290,9 +383,13 @@ audio{
 </section>
 
 
-<!-- ================= الصفحة الثالثة ================= -->
+
+<!-- ================================================== -->
+<!-- الصفحة الثالثة -->
+<!-- ================================================== -->
 
 <section id="p3" class="page hidden">
+
 
     <div class="floating" style="left:2%;animation-duration:2.4s;">❤️</div>
     <div class="floating" style="left:10%;animation-duration:3s;animation-delay:-1s;">💗</div>
@@ -304,12 +401,14 @@ audio{
     <div class="floating" style="left:79%;animation-duration:3.2s;animation-delay:-1s;">💗</div>
     <div class="floating" style="left:91%;animation-duration:2.8s;animation-delay:-2s;">❤️</div>
 
+
     <div class="content">
 
         <p>
             آسف هاجر تعرفيني معاق وسرقت فكرتك 😂<br>
             بس بحبك و... آسف معندي أفكار مهمة مح وابلعي ريكورد ❤️
         </p>
+
 
         <button onclick="go(4)">
             اضغط للاستماع
@@ -320,9 +419,13 @@ audio{
 </section>
 
 
-<!-- ================= الصفحة الرابعة ================= -->
+
+<!-- ================================================== -->
+<!-- الصفحة الرابعة -->
+<!-- ================================================== -->
 
 <section id="p4" class="page hidden">
+
 
     <div class="floating" style="left:5%;animation-duration:2.5s;">❓</div>
     <div class="floating" style="left:17%;animation-duration:3s;animation-delay:-1s;">❓</div>
@@ -333,17 +436,25 @@ audio{
     <div class="floating" style="left:83%;animation-duration:2.4s;animation-delay:-2s;">❓</div>
     <div class="floating" style="left:94%;animation-duration:2.9s;">❓</div>
 
+
     <div class="content">
 
-        <h1>قبل ما تسمعي جاوبي 🤨</h1>
+        <h1>
+            قبل ما تسمعي جاوبي 🤨
+        </h1>
 
-        <p>تحبيني أو لا؟</p>
+        <p>
+            تحبيني أو لا؟
+        </p>
+
 
         <button id="yes" onclick="runAway()">
             نعم أحبك ❤️
         </button>
 
+
         <br>
+
 
         <button id="no" onclick="go(5)">
             لا ما بحبك 💔
@@ -354,9 +465,13 @@ audio{
 </section>
 
 
-<!-- ================= الصفحة الخامسة ================= -->
+
+<!-- ================================================== -->
+<!-- الصفحة الخامسة -->
+<!-- ================================================== -->
 
 <section id="p5" class="page hidden">
+
 
     <div class="floating" style="left:4%;animation-duration:2.5s;">💔</div>
     <div class="floating" style="left:16%;animation-duration:3s;animation-delay:-1s;">💔</div>
@@ -367,11 +482,13 @@ audio{
     <div class="floating" style="left:81%;animation-duration:2.4s;">💔</div>
     <div class="floating" style="left:94%;animation-duration:2.9s;">💔</div>
 
+
     <div class="content">
 
         <p>
             دام ما بتحبيني أنا نفس الشي، اطلعي برا 💔
         </p>
+
 
         <button onclick="go(6)">
             خروج
@@ -382,9 +499,13 @@ audio{
 </section>
 
 
-<!-- ================= الصفحة السادسة ================= -->
+
+<!-- ================================================== -->
+<!-- الصفحة السادسة -->
+<!-- ================================================== -->
 
 <section id="p6" class="page hidden">
+
 
     <div class="floating" style="left:4%;animation-duration:2.5s;">🫦</div>
     <div class="floating" style="left:15%;animation-duration:3s;animation-delay:-1s;">🫦</div>
@@ -395,17 +516,24 @@ audio{
     <div class="floating" style="left:80%;animation-duration:2.4s;">🫦</div>
     <div class="floating" style="left:93%;animation-duration:2.9s;animation-delay:-2s;">🫦</div>
 
+
     <div class="content">
 
-        <h1>🎙️</h1>
+        <h1>
+            🎙️
+        </h1>
+
 
         <p>
             طب هسامحك و اسمعي دا 😔💔
         </p>
 
+
         <audio controls></audio>
 
+
         <br>
+
 
         <button onclick="go(7)">
             انتهى
@@ -416,21 +544,34 @@ audio{
 </section>
 
 
-<!-- ================= الصفحة السابعة ================= -->
+
+<!-- ================================================== -->
+<!-- الصفحة الأخيرة -->
+<!-- ================================================== -->
 
 <section id="p7" class="page hidden">
 
-    <!-- B.jpg كصورة خلفية كاملة -->
-    <img class="background-photo" src="B.jpg" alt="">
+
+    <!-- الصورة الثانية -->
+    <img
+        class="background-photo"
+        src="IMG_20260905_191120_714_edit_39960937041073.jpg"
+        alt=""
+    >
+
     <div class="photo-overlay"></div>
 
+
     <div class="content final-box">
+
 
         <div class="final-title">
             يدك فيه
         </div>
 
+
         <p>
+
             عيد ميلاد سعيد بقرتي هادجر ❤️<br><br>
 
             عندي لك رسالة أخرى هرسلها<br><br>
@@ -439,7 +580,9 @@ audio{
             بس ظروف محح<br><br>
 
             بقرتي المطيعة 🫶<br>
+
             كل عام وانتي بخير ❤️
+
         </p>
 
     </div>
@@ -447,22 +590,34 @@ audio{
 </section>
 
 
+
 <script>
+
+
+/* الانتقال بين الصفحات */
 
 function go(number){
 
     document.querySelectorAll(".page").forEach(function(page){
+
         page.classList.add("hidden");
+
     });
 
+
     document.getElementById("p" + number).classList.remove("hidden");
+
 }
 
+
+
+/* فحص كلمة السر */
 
 function checkPassword(){
 
     const password =
         document.getElementById("password").value;
+
 
     if(password === "انا بقرتك المطيعة"){
 
@@ -473,25 +628,34 @@ function checkPassword(){
         alert("الباسورد غلط 😂");
 
     }
+
 }
 
+
+
+/* زر نعم يهرب */
 
 function runAway(){
 
     const button =
         document.getElementById("yes");
 
+
     const x =
         Math.random() * 70 - 35;
+
 
     const y =
         Math.random() * 250 - 125;
 
+
     button.style.transform =
         "translate(" + x + "vw," + y + "px)";
+
 }
 
 </script>
 
+
 </body>
-    </html>
+        </html>
