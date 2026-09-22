@@ -17,6 +17,7 @@ background:#000;
 color:white;
 min-height:100vh;
 text-align:center;
+overflow:hidden;
 }
 
 .page{
@@ -26,6 +27,8 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 padding:25px;
+position:relative;
+overflow:hidden;
 }
 
 .hidden{display:none}
@@ -40,6 +43,7 @@ padding:13px 30px;
 cursor:pointer;
 background:white;
 color:#111;
+z-index:5;
 }
 
 h1{font-size:27px}
@@ -48,6 +52,7 @@ h1{font-size:27px}
 max-width:600px;
 font-size:19px;
 line-height:2;
+z-index:5;
 }
 
 input{
@@ -61,17 +66,11 @@ font-size:17px;
 text-align:center;
 }
 
-.link{
-margin-top:12px;
-font-size:14px;
-text-decoration:underline;
-cursor:pointer;
-}
-
 .options{
 position:relative;
 width:100%;
-height:120px;
+height:150px;
+z-index:5;
 }
 
 #yes,#no{
@@ -81,6 +80,71 @@ top:20px;
 
 #yes{right:55%}
 #no{left:55%}
+
+/* الإيموجيات المتحركة */
+.floating{
+position:absolute;
+font-size:45px;
+animation:fall linear infinite;
+pointer-events:none;
+opacity:.9;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-120vh) rotate(0deg);
+}
+100%{
+transform:translateY(120vh) rotate(360deg);
+}
+}
+
+/* الصفحة الأولى */
+.cake{
+position:absolute;
+font-size:45px;
+animation:cakeMove linear infinite;
+pointer-events:none;
+}
+
+@keyframes cakeMove{
+0%{transform:translateY(110vh) rotate(0deg);}
+100%{transform:translateY(-120vh) rotate(360deg);}
+}
+
+/* صورة النهاية */
+.final-img{
+width:90%;
+max-width:420px;
+max-height:45vh;
+object-fit:contain;
+border-radius:20px;
+margin-bottom:20px;
+}
+
+/* صورة الصفحة الثانية */
+.page-image{
+width:90%;
+max-width:420px;
+max-height:45vh;
+object-fit:contain;
+border-radius:20px;
+margin-bottom:20px;
+}
+
+/* البطة */
+.duck-link{
+display:block;
+font-size:75px;
+text-decoration:none;
+margin-top:12px;
+cursor:pointer;
+}
+
+.duck-text{
+font-size:14px;
+margin-top:5px;
+}
 </style>
 </head>
 
@@ -88,62 +152,135 @@ top:20px;
 
 <!-- الصفحة الأولى -->
 <section id="p1" class="page">
-<h1>🎂</h1>
-<button onclick="show('p2')">اضغط هنا ❤️</button>
+
+<span class="cake" style="left:5%;animation-duration:5s">🎂</span>
+<span class="cake" style="left:18%;animation-duration:7s">🧁</span>
+<span class="cake" style="left:32%;animation-duration:6s">🎂</span>
+<span class="cake" style="left:48%;animation-duration:8s">🍰</span>
+<span class="cake" style="left:63%;animation-duration:5.5s">🧁</span>
+<span class="cake" style="left:78%;animation-duration:7.5s">🎂</span>
+<span class="cake" style="left:92%;animation-duration:6.5s">🍰</span>
+
+<h1 style="z-index:5">🎂❤️</h1>
+
+<button onclick="show('p2')">
+اضغط هنا ❤️
+</button>
+
 </section>
 
-<!-- الباسورد -->
+
+<!-- الصفحة الثانية -->
 <section id="p2" class="page hidden">
-<h1>صدقتي هتكون سريعة كدا<br>يلزم اعذبك 😈</h1>
+
+<img src="A.jpg" class="page-image">
+
+<h1>
+صدقتي هتكون سريعة كدا<br>
+يلزم أعذبك 😉
+</h1>
 
 <input id="password" placeholder="أكتب الباسورد">
 
-<div class="link">
-اذا بدك الباسورد لا تضغط الرابط🦆
+<div class="duck-text">
+لا تضغط البطة 🦆
 </div>
 
-<button onclick="checkPassword()" style="margin-top:25px">
+<a
+class="duck-link"
+href="https://www.facebook.com/profile.php?id=61594269916603"
+target="_blank"
+>
+🦆
+</a>
+
+<button onclick="checkPassword()" style="margin-top:20px">
 دخول
 </button>
+
 </section>
 
-<!-- الرسالة -->
+
+<!-- الصفحة الثالثة -->
 <section id="p3" class="page hidden">
+
+<span class="floating" style="left:5%;animation-duration:5s">❤️</span>
+<span class="floating" style="left:20%;animation-duration:7s">💗</span>
+<span class="floating" style="left:35%;animation-duration:6s">💖</span>
+<span class="floating" style="left:50%;animation-duration:8s">💕</span>
+<span class="floating" style="left:65%;animation-duration:5.5s">❤️</span>
+<span class="floating" style="left:80%;animation-duration:7.5s">💗</span>
+<span class="floating" style="left:93%;animation-duration:6.5s">💖</span>
+
 <div class="message">
-اسف هادجر تعرفيني معاق و سرقت فكرتك بس بحبك و و و اسف معندي أفكار مهم مح و ابلعي ريكورد
+آسف هاجر تعرفيني معاق وسرقت فكرتك 😂
+بس بحبك و... آسف معندي أفكار مهمة مح وابلعي ريكورد ❤️
 </div>
 
 <button onclick="show('p4')" style="margin-top:30px">
 اضغط للاستماع
 </button>
+
 </section>
 
-<!-- السؤال -->
+
+<!-- الصفحة الرابعة -->
 <section id="p4" class="page hidden">
+
+<span class="floating" style="left:5%;animation-duration:5s">❓</span>
+<span class="floating" style="left:20%;animation-duration:7s">❔</span>
+<span class="floating" style="left:35%;animation-duration:6s">❓</span>
+<span class="floating" style="left:50%;animation-duration:8s">❔</span>
+<span class="floating" style="left:65%;animation-duration:5.5s">❓</span>
+<span class="floating" style="left:80%;animation-duration:7.5s">❔</span>
+<span class="floating" style="left:93%;animation-duration:6.5s">❓</span>
+
 <h1>
-قبل ما تسمعي جاوبي🦆<br>
+قبل ما تسمعي جاوبي 🤨<br>
 تحبيني أو لا؟
 </h1>
 
 <div class="options">
-<button id="yes" onclick="runAway()">نعم احبك</button>
+<button id="yes" onclick="runAway()">نعم أحبك</button>
 <button id="no" onclick="show('p5')">لا ما بحبك</button>
 </div>
+
 </section>
 
-<!-- المقلب -->
+
+<!-- الصفحة الخامسة -->
 <section id="p5" class="page hidden">
+
+<span class="floating" style="left:5%;animation-duration:5s">💔</span>
+<span class="floating" style="left:20%;animation-duration:7s">💔</span>
+<span class="floating" style="left:35%;animation-duration:6s">💔</span>
+<span class="floating" style="left:50%;animation-duration:8s">💔</span>
+<span class="floating" style="left:65%;animation-duration:5.5s">💔</span>
+<span class="floating" style="left:80%;animation-duration:7.5s">💔</span>
+<span class="floating" style="left:93%;animation-duration:6.5s">💔</span>
+
 <div class="message">
-دام متحبيني نا نفسي الشي اطلعي برا💔
+دام ما بتحبيني أنا نفسي الشي، اطلعي برا 💔
 </div>
 
 <button onclick="show('p6')" style="margin-top:30px">
 خروج
 </button>
+
 </section>
 
-<!-- الريكورد -->
+
+<!-- الصفحة السادسة -->
 <section id="p6" class="page hidden">
+
+<span class="floating" style="left:5%;animation-duration:5s">🫦</span>
+<span class="floating" style="left:20%;animation-duration:7s">🫦</span>
+<span class="floating" style="left:35%;animation-duration:6s">🫦</span>
+<span class="floating" style="left:50%;animation-duration:8s">🫦</span>
+<span class="floating" style="left:65%;animation-duration:5.5s">🫦</span>
+<span class="floating" style="left:80%;animation-duration:7.5s">🫦</span>
+<span class="floating" style="left:93%;animation-duration:6.5s">🫦</span>
+
 <h1>🎙️</h1>
 
 <div class="message">
@@ -155,18 +292,29 @@ top:20px;
 <button onclick="show('p7')" style="margin-top:30px">
 انتهى
 </button>
+
 </section>
 
-<!-- النهاية -->
+
+<!-- الصفحة الأخيرة -->
 <section id="p7" class="page hidden">
 
-<h1>عيد ميلاد سعيد بقرتي هادجر🫶</h1>
+<img src="B.jpg" class="final-img">
+
+<h1>
+عيد ميلاد سعيد بقرتي هاجر 🫶
+</h1>
 
 <div class="message">
-من ما قابلتك حبيتك و صح زعلت منك كتي بس انتي اكتر حد بحب اكلمه كنت بتمنى ما ترفضيني و علاقتنا تطور بجد يا هاجر انتي أغلى حد عندي الله يحفظك لي حبي
+من ما قابلتك حبيتك، وصح زعلت منك كتير،
+بس إنتي أكتر حد بحب أكلمه.
+كنت بتمنى ما ترفضيني وعلاقتنا تطور بجد.
+يا هاجر إنتي أغلى حد عندي،
+الله يحفظك لي حبي ❤️
 </div>
 
 </section>
+
 
 <script>
 
@@ -178,14 +326,20 @@ document.getElementById(id).classList.remove('hidden');
 }
 
 function checkPassword(){
+
 if(document.getElementById('password').value==="بقرتي المطيعة"){
 show('p3');
+
 }else{
-alert("الباسورد غلط 😭");
+
+alert("الباسورد غلط 😂");
+
 }
+
 }
 
 function runAway(){
+
 let button=document.getElementById('yes');
 
 let x=(Math.random()*70)-35;
@@ -193,6 +347,7 @@ let y=(Math.random()*100)-50;
 
 button.style.transform=
 `translate(${x}vw,${y}px)`;
+
 }
 
 </script>
