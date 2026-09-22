@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🎂 مفاجأة هاجر 🎂</title>
+<title>🎂 هدية هاجر 🎂</title>
 
 <style>
 *{
@@ -26,145 +26,136 @@ body{
 .page{
     width:100vw;
     height:100vh;
-    min-height:100vh;
     position:relative;
     overflow:hidden;
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
-    padding:25px;
+    padding:20px;
 }
 
-.hide{
+.hidden{
     display:none !important;
 }
 
 .content{
     position:relative;
     z-index:20;
-    max-width:90%;
+    width:90%;
+    max-width:700px;
 }
 
 h1{
-    font-size:clamp(28px,8vw,48px);
-    margin-bottom:22px;
     color:white;
-    text-shadow:0 3px 10px #000;
+    font-size:clamp(28px,8vw,50px);
+    text-shadow:0 3px 12px #000;
+    margin-bottom:20px;
 }
 
 p{
-    font-size:clamp(18px,5vw,27px);
-    line-height:1.8;
     color:white;
-    text-shadow:0 2px 7px #000;
+    font-size:clamp(19px,5vw,28px);
+    line-height:1.8;
+    text-shadow:0 2px 8px #000;
 }
 
 button{
     border:0;
-    padding:15px 28px;
-    margin-top:22px;
     border-radius:30px;
+    padding:14px 28px;
+    margin-top:22px;
     font-size:20px;
     font-weight:bold;
     cursor:pointer;
     position:relative;
     z-index:30;
-    box-shadow:0 5px 15px #0007;
+    box-shadow:0 5px 15px #0008;
 }
 
-input{
-    width:min(330px,90vw);
-    padding:15px;
-    border:0;
-    border-radius:25px;
-    text-align:center;
-    font-size:19px;
-    outline:none;
-    margin-top:15px;
-}
+/* خلفيات الصفحات */
 
-/* الخلفيات */
-
-#page1{
+#p1{
     background:linear-gradient(135deg,#ff5f9e,#845ec2);
 }
 
-#page2{
-    background-image:
-        linear-gradient(#0006,#0006),
-        url("./A.jpg");
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-}
-
-#page3{
+#p3{
     background:linear-gradient(135deg,#ff758c,#ff7eb3);
 }
 
-#page4{
+#p4{
     background:linear-gradient(135deg,#667eea,#764ba2);
 }
 
-#page5{
+#p5{
     background:linear-gradient(135deg,#232526,#414345);
 }
 
-#page6{
+#p6{
     background:linear-gradient(135deg,#ff9966,#ff5e62);
 }
 
-#page7{
-    background-image:
-        linear-gradient(#0004,#0004),
-        url("./B.jpg");
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
+
+/* الصور كخلفية كاملة */
+
+.background-photo{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    z-index:0;
 }
 
-/* العناصر المتحركة */
+.photo-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.38);
+    z-index:1;
+}
 
-.fall{
+
+/* الحركة */
+
+.floating{
     position:absolute;
     top:-100px;
     z-index:5;
     pointer-events:none;
-    animation:fall linear infinite;
+    animation-name:fall;
+    animation-timing-function:linear;
+    animation-iteration-count:infinite;
 }
 
 @keyframes fall{
-    0%{
+    from{
         transform:translateY(-120px) rotate(0deg);
     }
 
-    100%{
+    to{
         transform:translateY(120vh) rotate(360deg);
     }
 }
 
-/* الصفحة الأولى */
 
-.cake{
-    font-size:48px;
-}
-
-/* الصفحة الثانية */
+/* البطة */
 
 .duck{
     display:block;
-    font-size:100px;
-    margin-top:18px;
+    font-size:110px;
     text-decoration:none;
-    animation:bounce 1.5s infinite;
+    margin-top:10px;
+    animation:bounce 1.4s infinite;
+    position:relative;
+    z-index:30;
 }
 
 @keyframes bounce{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-12px);}
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-12px)}
 }
+
 
 /* الصفحة الرابعة */
 
@@ -177,61 +168,115 @@ input{
     color:white;
 }
 
-/* الصفحة السادسة */
+
+/* الصفحة الأخيرة */
+
+.final-box{
+    background:rgba(0,0,0,.45);
+    padding:25px;
+    border-radius:25px;
+    backdrop-filter:blur(5px);
+}
+
+.final-title{
+    font-size:clamp(38px,12vw,75px);
+    font-weight:900;
+    color:#fff;
+    text-shadow:
+        0 0 10px #fff,
+        0 0 25px #ff69b4,
+        0 0 45px #ff1493;
+    margin-bottom:25px;
+    animation:shine 1.5s infinite alternate;
+}
+
+@keyframes shine{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.06);
+    }
+}
 
 audio{
     width:min(350px,90vw);
     margin-top:20px;
-}
-
-/* الصفحة السابعة */
-
-.finalText{
-    background:#0006;
-    padding:25px;
-    border-radius:25px;
-    backdrop-filter:blur(4px);
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= الصفحة 1 ================= -->
 
-<section id="page1" class="page">
+<!-- ================= الصفحة الأولى ================= -->
 
-    <div class="fall cake" style="left:3%;animation-duration:2.5s;">🎂</div>
-    <div class="fall cake" style="left:13%;animation-duration:3s;animation-delay:-1s;">🎂</div>
-    <div class="fall cake" style="left:25%;animation-duration:2.7s;animation-delay:-2s;">🧁</div>
-    <div class="fall cake" style="left:37%;animation-duration:3.2s;animation-delay:-.5s;">🎂</div>
-    <div class="fall cake" style="left:49%;animation-duration:2.6s;animation-delay:-1.5s;">🧁</div>
-    <div class="fall cake" style="left:61%;animation-duration:3.1s;animation-delay:-2.2s;">🎂</div>
-    <div class="fall cake" style="left:73%;animation-duration:2.8s;animation-delay:-.8s;">🧁</div>
-    <div class="fall cake" style="left:85%;animation-duration:3.3s;animation-delay:-1.8s;">🎂</div>
-    <div class="fall cake" style="left:94%;animation-duration:2.4s;animation-delay:-.3s;">🎂</div>
+<section id="p1" class="page">
+
+    <div class="floating" style="left:3%;animation-duration:2.5s;">🎂</div>
+    <div class="floating" style="left:12%;animation-duration:2.8s;animation-delay:-1s;">🧁</div>
+    <div class="floating" style="left:22%;animation-duration:3s;animation-delay:-2s;">🎂</div>
+    <div class="floating" style="left:34%;animation-duration:2.6s;animation-delay:-.5s;">🧁</div>
+    <div class="floating" style="left:46%;animation-duration:3.1s;animation-delay:-1.5s;">🎂</div>
+    <div class="floating" style="left:58%;animation-duration:2.7s;animation-delay:-2.2s;">🧁</div>
+    <div class="floating" style="left:70%;animation-duration:3.2s;animation-delay:-.8s;">🎂</div>
+    <div class="floating" style="left:82%;animation-duration:2.5s;animation-delay:-1.8s;">🧁</div>
+    <div class="floating" style="left:94%;animation-duration:2.9s;animation-delay:-.3s;">🎂</div>
 
     <div class="content">
-        <h1>🎂 عندي ليك مفاجأة 🎂</h1>
-        <p>جاهزة يا هاجر؟ 👀</p>
-        <button onclick="go(2)">اضغط هنا ❤️</button>
+
+        <p>
+            كل عام وانتي بخير هاجر ❤️<br>
+            اسف مقدرت اسويلك هدية قولا موقع زي ما سويتي<br>
+            بس الصورة دي جد اعتزر 💔
+        </p>
+
+        <button onclick="go(2)">خروج</button>
+
     </div>
 
 </section>
 
 
-<!-- ================= الصفحة 2 ================= -->
+<!-- ================= الصفحة الثانية ================= -->
 
-<section id="page2" class="page hide">
+<section id="p2" class="page hidden">
+
+    <!-- A.jpg كصورة خلفية كاملة -->
+    <img class="background-photo" src="A.jpg" alt="">
+    <div class="photo-overlay"></div>
 
     <div class="content">
-        <h1>صدقتي هتكون سريعة كدا<br>يلزم أعذبك 😉</h1>
 
-        <input id="password" type="password" placeholder="أكتب الباسورد">
+        <p>
+            صدقتي هتكون سريعة كدا<br>
+            يلزم أعذبك 😉
+        </p>
+
+        <!-- الكتابة ظاهرة وليست مخفية -->
+        <input
+            id="password"
+            type="text"
+            placeholder="أكتب الباسورد"
+            style="
+                width:min(350px,90vw);
+                padding:15px;
+                margin-top:20px;
+                border:0;
+                border-radius:25px;
+                text-align:center;
+                font-size:19px;
+                outline:none;
+            "
+        >
+
+        <br>
 
         <button onclick="checkPassword()">دخول</button>
 
-        <p style="margin-top:15px;">لا تضغط البطة</p>
+        <p style="margin-top:15px;">
+            لا تضغط البطة
+        </p>
 
         <a
             class="duck"
@@ -239,50 +284,54 @@ audio{
             target="_blank">
             🦆
         </a>
+
     </div>
 
 </section>
 
 
-<!-- ================= الصفحة 3 ================= -->
+<!-- ================= الصفحة الثالثة ================= -->
 
-<section id="page3" class="page hide">
+<section id="p3" class="page hidden">
 
-    <div class="fall" style="left:2%;animation-duration:2.4s;">❤️</div>
-    <div class="fall" style="left:10%;animation-duration:3s;animation-delay:-1s;">💗</div>
-    <div class="fall" style="left:20%;animation-duration:2.7s;animation-delay:-2s;">💕</div>
-    <div class="fall" style="left:31%;animation-duration:3.3s;">❤️</div>
-    <div class="fall" style="left:43%;animation-duration:2.6s;animation-delay:-1.3s;">💖</div>
-    <div class="fall" style="left:55%;animation-duration:3.1s;animation-delay:-2s;">💕</div>
-    <div class="fall" style="left:67%;animation-duration:2.5s;">❤️</div>
-    <div class="fall" style="left:79%;animation-duration:3.2s;animation-delay:-1s;">💗</div>
-    <div class="fall" style="left:91%;animation-duration:2.8s;animation-delay:-2s;">❤️</div>
+    <div class="floating" style="left:2%;animation-duration:2.4s;">❤️</div>
+    <div class="floating" style="left:10%;animation-duration:3s;animation-delay:-1s;">💗</div>
+    <div class="floating" style="left:20%;animation-duration:2.7s;animation-delay:-2s;">💕</div>
+    <div class="floating" style="left:31%;animation-duration:3.3s;">❤️</div>
+    <div class="floating" style="left:43%;animation-duration:2.6s;animation-delay:-1.3s;">💖</div>
+    <div class="floating" style="left:55%;animation-duration:3.1s;animation-delay:-2s;">💕</div>
+    <div class="floating" style="left:67%;animation-duration:2.5s;">❤️</div>
+    <div class="floating" style="left:79%;animation-duration:3.2s;animation-delay:-1s;">💗</div>
+    <div class="floating" style="left:91%;animation-duration:2.8s;animation-delay:-2s;">❤️</div>
 
     <div class="content">
+
         <p>
             آسف هاجر تعرفيني معاق وسرقت فكرتك 😂<br>
-            بس بحبك و... آسف معندي أفكار مهمة<br>
-            مح وابلعي ريكورد ❤️
+            بس بحبك و... آسف معندي أفكار مهمة مح وابلعي ريكورد ❤️
         </p>
 
-        <button onclick="go(4)">اضغط للاستماع</button>
+        <button onclick="go(4)">
+            اضغط للاستماع
+        </button>
+
     </div>
 
 </section>
 
 
-<!-- ================= الصفحة 4 ================= -->
+<!-- ================= الصفحة الرابعة ================= -->
 
-<section id="page4" class="page hide">
+<section id="p4" class="page hidden">
 
-    <div class="fall" style="left:5%;animation-duration:2.5s;">❓</div>
-    <div class="fall" style="left:17%;animation-duration:3s;animation-delay:-1s;">❓</div>
-    <div class="fall" style="left:30%;animation-duration:2.7s;animation-delay:-2s;">❓</div>
-    <div class="fall" style="left:43%;animation-duration:3.2s;">❓</div>
-    <div class="fall" style="left:57%;animation-duration:2.6s;animation-delay:-1.5s;">❓</div>
-    <div class="fall" style="left:70%;animation-duration:3.1s;">❓</div>
-    <div class="fall" style="left:83%;animation-duration:2.4s;animation-delay:-2s;">❓</div>
-    <div class="fall" style="left:94%;animation-duration:2.9s;">❓</div>
+    <div class="floating" style="left:5%;animation-duration:2.5s;">❓</div>
+    <div class="floating" style="left:17%;animation-duration:3s;animation-delay:-1s;">❓</div>
+    <div class="floating" style="left:30%;animation-duration:2.7s;animation-delay:-2s;">❓</div>
+    <div class="floating" style="left:43%;animation-duration:3.2s;">❓</div>
+    <div class="floating" style="left:57%;animation-duration:2.6s;animation-delay:-1.5s;">❓</div>
+    <div class="floating" style="left:70%;animation-duration:3.1s;">❓</div>
+    <div class="floating" style="left:83%;animation-duration:2.4s;animation-delay:-2s;">❓</div>
+    <div class="floating" style="left:94%;animation-duration:2.9s;">❓</div>
 
     <div class="content">
 
@@ -290,94 +339,107 @@ audio{
 
         <p>تحبيني أو لا؟</p>
 
-        <button id="yes" onclick="runAway()">نعم أحبك ❤️</button>
+        <button id="yes" onclick="runAway()">
+            نعم أحبك ❤️
+        </button>
 
         <br>
 
-        <button id="no" onclick="go(5)">لا ما بحبك 💔</button>
+        <button id="no" onclick="go(5)">
+            لا ما بحبك 💔
+        </button>
 
     </div>
 
 </section>
 
 
-<!-- ================= الصفحة 5 ================= -->
+<!-- ================= الصفحة الخامسة ================= -->
 
-<section id="page5" class="page hide">
+<section id="p5" class="page hidden">
 
-    <div class="fall" style="left:4%;animation-duration:2.5s;">💔</div>
-    <div class="fall" style="left:16%;animation-duration:3s;animation-delay:-1s;">💔</div>
-    <div class="fall" style="left:29%;animation-duration:2.7s;animation-delay:-2s;">💔</div>
-    <div class="fall" style="left:42%;animation-duration:3.2s;">💔</div>
-    <div class="fall" style="left:55%;animation-duration:2.6s;animation-delay:-1.5s;">💔</div>
-    <div class="fall" style="left:68%;animation-duration:3.1s;">💔</div>
-    <div class="fall" style="left:81%;animation-duration:2.4s;">💔</div>
-    <div class="fall" style="left:94%;animation-duration:2.9s;">💔</div>
+    <div class="floating" style="left:4%;animation-duration:2.5s;">💔</div>
+    <div class="floating" style="left:16%;animation-duration:3s;animation-delay:-1s;">💔</div>
+    <div class="floating" style="left:29%;animation-duration:2.7s;animation-delay:-2s;">💔</div>
+    <div class="floating" style="left:42%;animation-duration:3.2s;">💔</div>
+    <div class="floating" style="left:55%;animation-duration:2.6s;animation-delay:-1.5s;">💔</div>
+    <div class="floating" style="left:68%;animation-duration:3.1s;">💔</div>
+    <div class="floating" style="left:81%;animation-duration:2.4s;">💔</div>
+    <div class="floating" style="left:94%;animation-duration:2.9s;">💔</div>
 
     <div class="content">
 
-        <h1>💔</h1>
-
         <p>
-            دام ما بتحبيني أنا نفس الشي،<br>
-            اطلعي برا 💔
+            دام ما بتحبيني أنا نفس الشي، اطلعي برا 💔
         </p>
 
-        <button onclick="go(6)">خروج</button>
+        <button onclick="go(6)">
+            خروج
+        </button>
 
     </div>
 
 </section>
 
 
-<!-- ================= الصفحة 6 ================= -->
+<!-- ================= الصفحة السادسة ================= -->
 
-<section id="page6" class="page hide">
+<section id="p6" class="page hidden">
 
-    <div class="fall" style="left:4%;animation-duration:2.5s;">🫦</div>
-    <div class="fall" style="left:15%;animation-duration:3s;animation-delay:-1s;">🫦</div>
-    <div class="fall" style="left:28%;animation-duration:2.7s;">🫦</div>
-    <div class="fall" style="left:41%;animation-duration:3.2s;animation-delay:-2s;">🫦</div>
-    <div class="fall" style="left:54%;animation-duration:2.6s;">🫦</div>
-    <div class="fall" style="left:67%;animation-duration:3.1s;animation-delay:-1s;">🫦</div>
-    <div class="fall" style="left:80%;animation-duration:2.4s;">🫦</div>
-    <div class="fall" style="left:93%;animation-duration:2.9s;animation-delay:-2s;">🫦</div>
+    <div class="floating" style="left:4%;animation-duration:2.5s;">🫦</div>
+    <div class="floating" style="left:15%;animation-duration:3s;animation-delay:-1s;">🫦</div>
+    <div class="floating" style="left:28%;animation-duration:2.7s;">🫦</div>
+    <div class="floating" style="left:41%;animation-duration:3.2s;animation-delay:-2s;">🫦</div>
+    <div class="floating" style="left:54%;animation-duration:2.6s;">🫦</div>
+    <div class="floating" style="left:67%;animation-duration:3.1s;animation-delay:-1s;">🫦</div>
+    <div class="floating" style="left:80%;animation-duration:2.4s;">🫦</div>
+    <div class="floating" style="left:93%;animation-duration:2.9s;animation-delay:-2s;">🫦</div>
 
     <div class="content">
 
         <h1>🎙️</h1>
 
-        <p>الريكورد هنا ❤️</p>
+        <p>
+            طب هسامحك و اسمعي دا 😔💔
+        </p>
 
-        <!-- ضع ملف الصوت هنا لاحقا -->
-        <audio controls>
-        </audio>
+        <audio controls></audio>
 
         <br>
 
-        <button onclick="go(7)">انتهى</button>
+        <button onclick="go(7)">
+            انتهى
+        </button>
 
     </div>
 
 </section>
 
 
-<!-- ================= الصفحة 7 ================= -->
+<!-- ================= الصفحة السابعة ================= -->
 
-<section id="page7" class="page hide">
+<section id="p7" class="page hidden">
 
-    <div class="content finalText">
+    <!-- B.jpg كصورة خلفية كاملة -->
+    <img class="background-photo" src="B.jpg" alt="">
+    <div class="photo-overlay"></div>
+
+    <div class="content final-box">
+
+        <div class="final-title">
+            يدك فيه
+        </div>
 
         <p>
-            عيد ميلاد سعيد بقرتي هاجر 🫶<br><br>
+            عيد ميلاد سعيد بقرتي هادجر ❤️<br><br>
 
-            من ما قابلتك حبيتك، وصح زعلت منك كتير،<br>
-            بس إنتي أكتر حد بحب أكلمه.<br><br>
+            عندي لك رسالة أخرى هرسلها<br><br>
 
-            كنت بتمنى ما ترفضيني وعلاقتنا تطور بجد.<br><br>
+            و اسف كان بدي اسوي موقع أقوى<br>
+            بس ظروف محح<br><br>
 
-            يا هاجر إنتي أغلى حد عندي،<br>
-            الله يحفظك لي حبي ❤️
+            بقرتي المطيعة 🫶<br>
+            كل عام وانتي بخير ❤️
         </p>
 
     </div>
@@ -390,19 +452,19 @@ audio{
 function go(number){
 
     document.querySelectorAll(".page").forEach(function(page){
-        page.classList.add("hide");
+        page.classList.add("hidden");
     });
 
-    document.getElementById("page" + number).classList.remove("hide");
+    document.getElementById("p" + number).classList.remove("hidden");
 }
 
 
 function checkPassword(){
 
-    let password =
+    const password =
         document.getElementById("password").value;
 
-    if(password === "بقرتي المطيعة"){
+    if(password === "انا بقرتك المطيعة"){
 
         go(3);
 
@@ -416,21 +478,20 @@ function checkPassword(){
 
 function runAway(){
 
-    let button =
+    const button =
         document.getElementById("yes");
 
-    let x =
+    const x =
         Math.random() * 70 - 35;
 
-    let y =
+    const y =
         Math.random() * 250 - 125;
 
     button.style.transform =
         "translate(" + x + "vw," + y + "px)";
-
 }
 
 </script>
 
 </body>
-      </html>
+    </html>
